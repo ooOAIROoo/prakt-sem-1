@@ -30,7 +30,7 @@ int ex1() {
     int lineNumber = 1;
 
     while (getline(file_test_1, line)) {
-        cout << lineNumber << u8": " << line << endl;
+        cout << lineNumber << ": " << line << endl;
         lineNumber++;
     }
 
