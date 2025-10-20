@@ -55,14 +55,11 @@ int ex2() {
         return 1;
     }
 
-    int len_line = 0;
     string line;
-    string out_line;
+    
+    while (getline(file_test_2, line)) { 
 
-    while (getline(file_test_2, line)) {
-        len_line = sizeof(line) - 1;
-        
-        ñout << u8"Âñå öèôğû â ôàéëå: ";
+        cout << u8"Âñå öèôğû â ôàéëå: ";
 
         for (char c : line) {
             if (c >= '0' && c <= '9') {
