@@ -6,32 +6,30 @@
 
 using namespace std;
 
+// C:\test_files\course_1\pr_3\num1.txt
+
 int ex1() {
+    SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
+    cout << u8"\t ==== Задача 1 ====\n";
+    cout << u8"«Копирование файла». Создать на диске текстовый файл и скопировать его на экран." << endl;
 
-    cout << "\t ==== Задача 1 ===\n";
-    cout << "«Копирование файла». Создать на диске текстовый файл и скопировать его на экран." << endl;
-    // C:\test_files\course_1\pr_3\num1.txt
+    string filename;
 
+    cout << u8"Укажите путь к файлу: ";
+    cin >> filename;
+    cout << "\n" << endl;
 
-    wstring filename;
+    ifstream file_test_1(filename);
 
-    cout << "Укажите путь к файлу: ";
-    wcin >> filename;
-
-    // Используем wifstream для широких символов
-    wifstream file_test_1(filename);
-
-    if (!file_test_1.is_open()) { // проверка открытия файла
-        cout << "Ошибка открытия файла!" << endl;
+    if (!file_test_1.is_open()) {
+        cout << u8"Ошибка открытия файла!" << endl;
+        return 1;
     }
 
-    wstring line;
-    int lineNumber = 1;
-
+    string line;
     while (getline(file_test_1, line)) {
-        cout << lineNumber << ": " << line << endl;
-        lineNumber++;
+        cout << line << endl;
     }
 
     file_test_1.close();
@@ -40,21 +38,41 @@ int ex1() {
 
 
 int ex2() {
-    cout << "\t ==== Задача 2 ===" << endl;
-    cout << "«Фильтр». Вывести на экран только числа из созданного Вами на диске текстового файла, содержащего буквы и числа.";
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
+    cout << u8"\t ==== Задача 2 ===" << endl;
+    cout << u8"«Фильтр». Вывести на экран только числа из созданного Вами на диске текстового файла, содержащего буквы и числа.";
 
     wstring filename;
 
-    cout << "Укажите путь к файлу: ";
+    cout << u8"Укажите путь к файлу: ";
     wcin >> filename;
 
-    wifstream file_test_2(filename);
+    ifstream file_test_2(filename);
 
     if (!file_test_2.is_open()) {
-        cout << "Ошибка открытия файла!" << endl;
+        cout << u8"Ошибка открытия файла!" << endl;
         return 1;
     }
 
+    int len_line = 0;
+    string line;
+    string out_line;
+
+    while (getline(file_test_2, line)) {
+        len_line = sizeof(line) - 1;
+        
+        сout << u8"Все цифры в файле: ";
+
+        for (char c : line) {
+            if (c >= '0' && c <= '9') {
+                cout << c;
+            }
+        }
+
+    }
+
+    file_test_2.close();
     return 0;
 }
 

@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <string>
 #include <cstdlib>
+#include <locale>
 #include "fuc.h"
 
 using namespace std;
@@ -12,6 +13,7 @@ int main() {
 	SetConsoleOutputCP(1251);
 
 	string ex_num;
+
 	cout << "	====== ПРАКТИКА 3 ======\n" << "ведите номер задачи: (0 - выход)  == ";
 	cin >> ex_num;
 	system("cls");
@@ -39,6 +41,8 @@ int main() {
 			ex6();
 		}
 
+		SetConsoleCP(1251);
+		SetConsoleOutputCP(1251);
 
 		cout << "\n\nведите номер задачи: (0 - выход)  == ";
 		cin >> ex_num;
