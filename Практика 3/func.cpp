@@ -7,6 +7,7 @@
 using namespace std;
 
 // C:\test_files\course_1\pr_3\num1.txt
+// C:\test_files\course_1\pr_3\num2.txt
 
 int ex1() {
     SetConsoleCP(65001);
@@ -41,7 +42,7 @@ int ex2() {
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
     cout << u8"\t ==== Задача 2 ===" << endl;
-    cout << u8"«Фильтр». Вывести на экран только числа из созданного Вами на диске текстового файла, содержащего буквы и числа.";
+    cout << u8"«Фильтр». Вывести на экран только числа из созданного Вами на диске текстового файла, содержащего буквы и числа." << endl;
 
     wstring filename;
 
@@ -57,10 +58,8 @@ int ex2() {
 
     string line;
     
-    while (getline(file_test_2, line)) { 
-
-        cout << u8"Все цифры в файле: ";
-
+    cout << u8"Все цифры в файле: ";
+    while (getline(file_test_2, line)) {
         for (char c : line) {
             if (c >= '0' && c <= '9') {
                 cout << c;
