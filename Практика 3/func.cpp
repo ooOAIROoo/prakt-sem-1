@@ -4,12 +4,40 @@
 #include <string>
 #include <Windows.h>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
 // C:\test_files\course_1\pr_3\num1.txt
 // C:\test_files\course_1\pr_3\num2.txt
 // C:\test_files\course_1\pr_3\num3.txt
+
+int gcdByDivision(int a, int b) {
+    a = abs(a);
+    b = abs(b);
+
+    while (b != 0) {
+        int temp = b;
+        b = a % b;  
+        a = temp;
+    }
+    return a;
+}
+
+int gcdBySubtraction(int a, int b) {
+    a = abs(a);
+    b = abs(b);
+
+    while (a != b) {
+        if (a > b) {
+            a = a - b;
+        }
+        else {
+            b = b - a;
+        }
+    }
+    return a;
+}
 
 int ex1() {
     SetConsoleCP(65001);
@@ -95,7 +123,7 @@ int ex3() {
     string line;
     while (getline(file_test_3, line)) {
         sort(line.begin(), line.end());
-        cout << line;
+        cout << line << endl;
 
     }
 
@@ -107,9 +135,19 @@ int ex3() {
 
 int ex4() {
     cout << "\t ==== Задача 4 ====" << endl;
-    cout << "«Алгоритм Евклида». Задать 2 числа и найти их наибольший общий делитель двумя способами : делением и вычитанием.";
+    cout << "«Алгоритм Евклида». Задать 2 числа и найти их наибольший общий делитель двумя способами : делением и вычитанием." << endl;
+    
+    int  a, b, res1, res2;
 
+    cout << "Введите первое число: " << endl;
+    cin >> a;
+    cout << "Введите второе число: " << endl;
+    cin >> b;
 
+    res1 = gcdByDivision(a, b);
+    res2 = gcdBySubtraction(a, b);
+
+    cout << "\nНОД делением: " << res1 << "\nНОД вычитанием: " << res2 << endl;
     return 0;
 }
 
