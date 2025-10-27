@@ -12,6 +12,7 @@ using namespace std;
 // C:\test_files\course_1\pr_3\num2.txt
 // C:\test_files\course_1\pr_3\num3.txt
 
+
 int gcdByDivision(int a, int b) {
     a = abs(a);
     b = abs(b);
@@ -122,14 +123,26 @@ int ex3() {
 
     string line;
     while (getline(file_test_3, line)) {
-        sort(line.begin(), line.end());
+        int length = line.length();
+
+        // Сортировка пузырьком
+        for (int i = 0; i < length - 1; i++) {
+            // Последние i элементов уже отсортированы
+            for (int j = 0; j < length - i - 1; j++) {
+                // Сравниваем соседние символы
+                if (line[j] > line[j + 1]) {
+                    // Меняем местами, если нужно
+                    char temp = line[j];
+                    line[j] = line[j + 1];
+                    line[j + 1] = temp;
+                }
+            }
+        }
         cout << line << endl;
 
     }
 
     file_test_3.close();
-    return 0;
-
     return 0;
 }
 
