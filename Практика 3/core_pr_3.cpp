@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include <string>
 #include <cstdlib>
-#include <locale>
 #include "fuc.h"
 
 using namespace std;
