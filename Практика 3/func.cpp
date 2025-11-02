@@ -40,6 +40,26 @@ int gcdBySubtraction(int a, int b) {
     return a;
 }
 
+bool isPrime(int n) {
+    if (n < 2) {
+        return false;
+    }
+    if (n == 2) {
+        return true;
+    }
+    if (n % 2 == 0) {
+        return false;
+    }
+
+    int limit = sqrt(n);
+    for (int i = 3; i <= limit; i += 2) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int ex1() {
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
@@ -167,19 +187,21 @@ int ex5() {
     cout << "\t ==== Задача 5 ====" << endl;
     cout << "Найти все простые числа в диапазоне от 2 до введенного вами натурального числа." << endl;
     int num;
-    vector<int> primes;
+    
 
-    cout << "Введите натуральное число больше 2х: ";
+    cout << "Введите натуральное число: ";
     cin >> num;
-
+    
     if (num < 2) {
-        cout << "Простых чисел не найдено" << endl;
+        cout << "\nПростых чисел не найдено." << endl;
         return 0;
     }
-    
-    else {
-        for (int i = 2; i <= (num / log(num) + 1); i++) {
-            cout << i;
+
+    cout << "\n\nПростые числа найденные в дапозоне от 2 до " << num << ":" << endl;
+
+    for (int i = 2; i <= num; i++) {
+        if (isPrime(i) == true) {
+            cout << i << " ";
         }
     }
 
