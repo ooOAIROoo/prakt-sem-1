@@ -217,18 +217,18 @@ int ex6() {
     // Записываем 10 чисел с клавиатуры в файл
     cout << "Введите 10 чисел:" << endl;
     for (int i = 0; i < 10; i++) {
-        int num;
+        float num;
         cin >> num;
         fout << num << " "; // Числа разделяются пробелами
     }
     fout.close(); // Закрываем файл
 
     ifstream fin("numbers.txt"); // Открываем файл для чтения
-    int sum = 0;
+    float sum = 0;
 
     // Считываем числа и вычисляем сумму
     for (int i = 0; i < 10; i++) {
-        int num;
+        float num;
         fin >> num;
         sum += num;
     }
