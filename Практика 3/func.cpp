@@ -3,8 +3,6 @@
 #include <fstream>
 #include <string>
 #include <Windows.h>
-#include <algorithm>
-#include <vector>
 
 using namespace std;
 
