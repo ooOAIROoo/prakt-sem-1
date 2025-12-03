@@ -9,6 +9,28 @@
 
 using namespace std;
 
+bool isValidRoNum(const string roman) { 
+    // добавить регулярные выражения
+    vector<string> inValid = {
+        "IIII", "VV", "XXXX", "LL",
+        "CCCC", "DD", "MMMM",
+        "IL", "IC", "ID", "IM",
+        "XD", "XM", "VX", "VL",
+        "VC", "VD", "VM", "LC",
+        "LD", "LM", "DM"
+    };
+
+    for (int i = 0; i < inValid.size(); i++) {
+        size_t pos = roman.find(inValid[i]);
+
+        if (pos != std::string::npos) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int romanToDecimal(const string roman) {
     // Карта значений римских цифр
     unordered_map<char, int> values = {
@@ -79,15 +101,32 @@ void ex1()
 		Num_str.push_back(Current_char);
 	}
 
+    if ( !isValidRoNum(Num_str) ) {
+        cout << "Неправильное римское число." << endl;
+        return;
+    }
+
+
     num = romanToDecimal(Num_str);
     
     cout << "\nЧисло: " << num << endl;
+    return;
 }
 
 void ex2()
 {
 	cout << "\t ==== Задача 2 =====\n";
 	cout << "Задание «Системы счисления»" << endl;
+    int old_base, new_base, num;
+
+    cout << "Введите основание исходного числа: ";
+    cin >> old_base;
+    cout << "\nИсходное число: ";
+    cin >> num;
+    cout << "\nВведите новое основание: ";
+    cin >> new_base;
+
+
 }
 
 void ex3()
