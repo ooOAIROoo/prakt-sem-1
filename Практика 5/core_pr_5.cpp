@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <string>
 #include <cstdlib>
-#include "fuc_4.h"
+#include "fuc_5.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ int main() {
 
 	string ex_num;
 
-	cout << "	====== ПРАКТИКА 4 ======\n" << "ведите номер задачи: (0 - выход)  == ";
+	cout << "	====== ПРАКТИКА 3 ======\n" << "ведите номер задачи: (0 - выход)  == ";
 	cin >> ex_num;
 	system("cls");
 
